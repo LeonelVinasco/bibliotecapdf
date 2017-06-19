@@ -1,0 +1,37 @@
+package concurso1Basico;
+
+import java.util.Scanner;
+
+public class TypeRacerCall {
+
+	public static void main(String[] args) {
+		
+Scanner scan= new Scanner(System.in);
+		
+		String in=scan.nextLine();
+		
+		int casos=Integer.parseInt(in);
+		int[][] teclado=new int[4][3];
+		teclado[0][0]=1;
+		teclado[0][1]=2;
+		teclado[0][2]=3;
+		teclado[1][0]=4;
+		teclado[1][1]=5;
+		teclado[1][2]=6;
+		teclado[2][0]=7;
+		teclado[2][1]=8;
+		teclado[2][2]=9;
+		teclado[3][0]=15;
+		teclado[3][1]=0;
+		teclado[3][2]=16;
+		System.out.println(teclado[1][2]);
+		
+		teclado[0][0]=1;
+		teclado[0][0]=1;
+		teclado[0][0]=1;
+		
+				
+		
+	}
+
+}

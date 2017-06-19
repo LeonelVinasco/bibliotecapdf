@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item value="2" key="org.eclipse.egit.ui.internal.clone.GitSelectWizardPageWizardSel"/>
+	<list key="RepositorySelectionPage.UsedUris">
+		<item value="https://github.com/LeonelVinasco/bibliotecaPDFsILSA"/>
+		<item value="https://github.com/LeonelVinasco/EstructurasDeDatos"/>
+	</list>
+	<list key="EGit.KnownHosts">
+		<item value="bitbucket.org"/>
+		<item value="git.eclipse.org"/>
+		<item value="github.com"/>
+	</list>
+	<list key="CommitDialog.authorValues">
+		<item value="debian &lt;debian@localhost&gt;"/>
+	</list>
+	<list key="CommitDialog.committerValues">
+		<item value="debian &lt;debian@localhost&gt;"/>
+	</list>
+	<section name="GitImportWizard">
+	</section>
+	<section name="org.eclipse.egit.ui.internal.push.PushResultDialog.dialogBounds">
+		<item value="656" key="DIALOG_WIDTH"/>
+		<item value="1|Cantarell|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
+		<item value="466" key="DIALOG_HEIGHT"/>
+		<item value="358" key="DIALOG_X_ORIGIN"/>
+		<item value="56" key="DIALOG_Y_ORIGIN"/>
+		<list key="sashWeights">
+			<item value="600"/>
+			<item value="400"/>
+		</list>
+	</section>
+	<section name="GitCommitMessageComponent">
+		<list key="/home/debian/desarrollo/workspace_eclipse/PDFsILSA/.git">
+			<item value="empty"/>
+		</list>
+		<list key="/home/debian/git/EstructurasDeDatos1/.git">
+			<item value="false"/>
+			<item value="debian &lt;debian@localhost&gt;"/>
+			<item value="adsds"/>
+			<item value="debian &lt;debian@localhost&gt;"/>
+			<item value="2c3b09616f5b1c051788242a67d94d6c635017d8"/>
+		</list>
+	</section>
+	<section name="GitCreatePatchWizard">
+	</section>
+	<section name="org.eclipse.egit.ui.internal.staging.StagingView">
+		<item value="500,500" key="STAGING_SASH_FORM_WEIGHT"/>
+		<item value="false" key="sortItemState"/>
+		<item value="500,500" key="HORIZONTAL_SASH_FORM_WEIGHT"/>
+	</section>
+</section>

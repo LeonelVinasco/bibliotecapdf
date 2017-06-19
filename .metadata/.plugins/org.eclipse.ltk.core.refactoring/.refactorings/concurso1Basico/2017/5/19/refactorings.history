@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;concurso1Basico.TypeRacerCall.Proceso&apos; to &apos;persona&apos;&#x0A;- Original project: &apos;concurso1Basico&apos;&#x0A;- Original element: &apos;concurso1Basico.TypeRacerCall.Proceso&apos;&#x0A;- Renamed element: &apos;concurso1Basico.TypeRacerCall.persona&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;Proceso&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;concurso1Basico{TypeRacerCall.java[TypeRacerCall[Proceso" matchStrategy="1" name="persona" qualified="false" references="true" similarDeclarations="false" stamp="1494620658512" textual="false" version="1.0"/>
+</session>

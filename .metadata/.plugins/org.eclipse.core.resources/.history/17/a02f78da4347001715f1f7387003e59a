@@ -1,0 +1,214 @@
+package taller6;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.PriorityQueue;
+import java.util.Scanner;
+import java.util.Set;
+import java.util.StringTokenizer;
+import java.util.Map.Entry;
+
+import taller6.TestClass1.Arco;
+import taller6.TestClass1.Nodo;
+
+public class MainDijkstral {
+
+    private static int dijkstral(int source, int target) {
+        
+    	PriorityQueue<Pair> PQ = new PriorityQueue<Pair>();
+        int dist[] = new int[grafo.length];
+        Pair aux;
+        
+        Arrays.fill(dist, Integer.MAX_VALUE / 3);
+        
+        PQ.add(new Pair(0, source));
+        dist[source] = 0;
+        
+        while (!PQ.isEmpty()) {
+            aux = PQ.remove();
+            
+            if (aux.peso > dist[aux.nodo])
+                continue;
+            if (aux.nodo == target)
+                return aux.peso;
+            
+            for (Arco v : grafo[aux.nodo]) {
+                if (dist[v.dest] > dist[aux.nodo] + v.costo) {
+                    dist[v.dest] = dist[aux.nodo] + v.costo;
+                    PQ.add(new Pair(dist[v.dest], v.dest));
+                }
+            }
+        }
+        
+        
+        return dist[target];
+    }
+    
+    static class Pair implements Comparable<Pair>{
+        int peso;
+        int nodo;
+        public Pair() {
+        }
+        public Pair(int peso, int nodo) {
+            this.peso = peso;
+            this.nodo = nodo;
+        }
+
+        public int compareTo(Pair o) {
+            if (this.peso != o.peso)
+                return this.peso - o.peso;
+            return this.nodo - o.nodo;
+        }
+    }
+    
+    static class Arco {
+        int ori, dest, costo;
+        
+        public Arco(){
+            super();
+        }
+        public Arco(int ori, int dest, int cost){
+            this.ori = ori;
+            this.dest = dest;
+            this.costo = cost;
+        }
+        
+        public String toString() {
+            return "[ ori: " + ori + ", dest: " + dest + ". costo=" + costo +"]";
+        }
+    }
+    
+    static ArrayList<Arco>[] grafo;
+    static int[][] pesos;
+
+    static boolean isValid(int x, int lim) {
+        return x >= 0 && x < lim;
+    }
+    
+    public static void main(String args[]) throws Exception{
+    	Scanner scan=new Scanner(System.in);
+        String[] entrada;
+        entrada=scan.nextLine().split(" ");
+        int casos=Integer.parseInt(entrada[0]);
+        int numComps;
+        int numCon;
+        int origen;
+        int destino;
+        for (int cas = 0; cas < casos ; cas++) {
+        	
+        	entrada=scan.nextLine().split(" ");
+        	numComps=Integer.parseInt(entrada[0]);
+        	numCon=Integer.parseInt(entrada[1]);
+        	origen=Integer.parseInt(entrada[2]);
+        	destino=Integer.parseInt(entrada[3]);
+        	HashMap<Integer,HashMap<Integer,Arco>> vertices = new HashMap<Integer,HashMap<Integer,Arco>>();//matriz
+        	ArrayList<Integer> adj = new ArrayList<Integer>(); //lista adjacencia
+        	
+        	grafo = new ArrayList[numComps];
+        	for (int i = 0 ; i < numComps; i++) {
+                grafo[i] = new ArrayList<Arco>();
+            }
+        	
+            for(int i=0; i< numCon;i++){//arma la matriz con los valores ingresados 
+            	entrada=scan.nextLine().split(" ");
+            	Integer nodoPrim=Integer.parseInt(entrada[0]);
+            	Integer nodoSec=Integer.parseInt(entrada[1]);
+            	Integer pesoCon=Integer.parseInt(entrada[2]);
+            	
+            	
+            	HashMap<Integer,Arco> aux=new HashMap<Integer,Arco>();
+            	HashMap<Integer,Arco> aux2=new HashMap<Integer,Arco>();
+            	Nodo tempNod=new Nodo(entrada[1]);
+            	Arco temp=new Arco(nodoPrim,nodoSec,pesoCon);
+            	
+            	Nodo tempNod2=new Nodo(entrada[0]);
+            	Arco temp2=new Arco(nodoPrim,nodoSec,pesoCon);
+
+            	if (!vertices.containsKey(nodoPrim)){
+            		 
+            		aux.put(nodoSec, temp);
+            		vertices.put(nodoPrim, aux);
+            	}else{
+            		aux=vertices.get(nodoPrim);
+            		
+            		aux.put(nodoSec, temp);
+            		vertices.replace(nodoPrim, aux);
+            	}
+            	if (!vertices.containsKey(nodoSec)){
+            		aux2.put(nodoPrim, temp2);
+            		vertices.put(nodoSec, aux2);
+            	}else{
+            		aux2=vertices.get(nodoSec);
+            		aux2.put(nodoPrim, temp2);
+            		vertices.replace(nodoSec, aux2);
+            	}	
+            	grafo[nodoPrim].add(new Arco(nodoPrim, nodoSec, pesoCon));
+            	grafo[nodoSec].add(new Arco(nodoSec, nodoPrim, pesoCon));
+            	
+            }
+            
+            
+            
+            
+             Set<Entry<Integer, HashMap<Integer, Arco>>> set = vertices.entrySet();  
+             Iterator<Entry<Integer, HashMap<Integer, Arco>>> it = set.iterator();
+         
+             while(it.hasNext()) {
+               Map.Entry me = (Map.Entry)it.next();
+               System.out.print("Key is: "+me.getKey() + " & ");
+               System.out.println("Value is: "+me.getValue());  
+               
+               
+             } 
+            
+           /* pesos = new int[n][m];
+            
+            for (int i = 0; i < n ; i++) {
+                st = new StringTokenizer(br.readLine());
+                for (int j = 0; j < m; j++) {
+                    pesos[i][j] = Integer.parseInt(st.nextToken());
+                }
+            }
+             int nNodos = n * m;
+            int source = 0, target = n * m - 1, nodoU, nodoV;
+            grafo = new ArrayList[nNodos];
+           
+            
+            for (int i = 0 ; i < nNodos; i++) {
+                grafo[i] = new ArrayList<Arco>();
+            }
+             
+            int[] posX ={-1, 0, 1, 0};
+            int[] posY ={0, 1, 0, -1};
+            
+            for (int i = 0; i < n ; i++) {
+                for (int j = 0; j < m; j++) {
+                    nodoU = i * m + j;
+                    for (int k = 0; k < 4; k++) {
+                        if (!isValid((i + posX[k]), n) || !isValid((j + posY[k]), m)) {
+                            continue;
+                        }
+                        int xAux = (i + posX[k]);
+                        int yAux = (j + posY[k]);
+                        nodoV = xAux * m + yAux;
+                        grafo[nodoU].add(new Arco(nodoU, nodoV, pesos[xAux][yAux]));
+                    }
+                }
+            }
+            */
+            for (int i = 0; i < numComps ; i++) {
+               System.out.println("Nodo " + i + "Vecinos" + grafo[i]);
+           }
+            
+            //System.out.println(dijkstral(source, target));
+        }
+    }
+}
+

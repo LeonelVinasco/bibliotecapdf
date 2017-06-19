@@ -1,0 +1,42 @@
+package concurso1Basico;
+
+import java.util.Scanner;
+
+public class capicua {
+
+	public static void main(String[] args) {
+		Scanner scan= new Scanner(System.in);
+		
+		String in=scan.nextLine();
+		
+		int casos=Integer.parseInt(in);
+		
+		for(int i=0;i<casos;i++){
+			in=scan.nextLine();
+			
+			
+			String[] der;
+			boolean a=true;
+			for(int j=0;j<in.length();j++){
+				if(in.substring(in.length()-j-1, in.length()-(j)).equals(in.substring(j, j+1))){
+					a=true;
+				  }else{
+					  a=false;
+					  break;
+				  }
+			}
+			
+			if(a){
+				System.out.println("YES");
+			  }else{
+				  System.out.println("NO");  
+				  break;
+			  }
+			
+			
+		
+		
+		}
+	}
+
+}

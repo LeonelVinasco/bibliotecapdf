@@ -1,0 +1,22 @@
+package biblioteca;
+
+import java.io.File;
+import java.io.IOException; 
+import org.apache.pdfbox.pdmodel.PDDocument;
+
+public class biblio {
+
+	public static void main(String[] args){
+		
+		File file = new File("Eclvs08-00.pdf");
+	
+		 PDDocument document = new PDDocument();
+
+	   
+	     
+	      
+		
+
+	}
+
+}

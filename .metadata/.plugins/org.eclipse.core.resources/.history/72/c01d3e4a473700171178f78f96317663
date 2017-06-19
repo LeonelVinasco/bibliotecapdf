@@ -1,0 +1,33 @@
+package concurso1Basico;
+
+import java.util.Scanner;
+
+public class capicua {
+
+	public static void main(String[] args) {
+		Scanner scan= new Scanner(System.in);
+		
+		String in=scan.nextLine();
+		
+		int casos=Integer.parseInt(in);
+		
+		for(int j=0;j<5;j++){
+			in=scan.nextLine();
+			System.out.println(in.substring(in.length()-j-1, in.length()-(j)));
+			break;
+			/*String[] der;
+			
+			for(int j=1;j<in.length();j++){
+				if(in.substring(in.length()-j, in.length()-(j-1)).equals(in.substring(0, j)))
+				
+				break;
+			}*/
+			
+			
+			
+		
+		
+		}
+	}
+
+}

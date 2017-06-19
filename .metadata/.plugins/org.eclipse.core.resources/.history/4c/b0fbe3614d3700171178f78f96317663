@@ -1,0 +1,109 @@
+package concurso1Basico;
+
+import java.util.Scanner;
+
+public class TypeRacerCall {
+
+	public int[] indices(int tecla){
+		int[] ind=new int[2];
+		if (tecla==1){
+			ind[0]=0;
+			ind[1]=0;
+			return ind;
+		}else if(tecla==2){
+			ind[0]=0;
+		    ind[1]=1;
+		    return ind;
+	    }
+	else if(tecla==3){
+		ind[0]=0;
+	    ind[1]=2;
+	    return ind;
+    }else if(tecla==4){
+		ind[0]=1;
+	    ind[1]=0;
+	    return ind;
+    }else if(tecla==5){
+		ind[0]=1;
+	    ind[1]=1;
+	    return ind;
+    }else if(tecla==6){
+		ind[0]=1;
+	    ind[1]=2;
+	    return ind;
+    }else if(tecla==7){
+		ind[0]=2;
+	    ind[1]=0;
+	    return ind;
+    }else if(tecla==8){
+		ind[0]=2;
+	    ind[1]=1;
+	    return ind;
+    }else if(tecla==9){
+		ind[0]=2;
+	    ind[1]=2;
+	    return ind;
+    }else if(tecla==15){
+		ind[0]=3;
+	    ind[1]=0;
+	    return ind;
+    }else if(tecla==0){
+		ind[0]=3;
+	    ind[1]=1;
+	    return ind;
+    }else if(tecla==16){
+		ind[0]=3;
+	    ind[1]=2;
+	    return ind;
+    }
+		ind[0]=-1;
+	    ind[1]=-1;
+		return ind;
+	}
+	
+	public static void main(String[] args) {
+		
+Scanner scan= new Scanner(System.in);
+		TypeRacerCall a= new TypeRacerCall();
+		String[] in=scan.nextLine().split(" ");
+		String[] in2=scan.nextLine().split(" ");
+		int casos=Integer.parseInt(in[0]);
+		int[][] teclado=new int[4][3];
+		int[] principal=new int[2];
+		int[] secundario=new int[2];
+//		teclado[0][0]=1;
+//		teclado[0][1]=2;
+//		teclado[0][2]=3;
+//		teclado[1][0]=4;
+//		teclado[1][1]=5;
+//		teclado[1][2]=6;
+//		teclado[2][0]=7;
+//		teclado[2][1]=8;
+//		teclado[2][2]=9;
+//		teclado[3][0]=15;
+//		teclado[3][1]=0;
+//		teclado[3][2]=16;
+		
+		for(int k=0;k<casos;k++){
+			int cuenta=0;
+			in=scan.nextLine().split(" ");
+			principal=a.indices(Integer.parseInt(in[0].substring(0,1)));
+			
+				for(int i=0;i<in[0].length();i++){
+					
+					secundario=a.indices(Integer.parseInt(in[0].substring(0+i+1,i+2)));
+			        cuenta+=(secundario[0]-principal[0])+(secundario[1]-principal[1]);
+			        principal=secundario;
+			        System.out.println(cuenta);
+			        break;
+			}
+			
+		}
+		
+		
+		
+				
+		
+	}
+
+}
